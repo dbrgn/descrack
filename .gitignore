@@ -20,6 +20,7 @@
 *.out
 *.app
 descrack
+opencl_device_test
 
 # Vim
 *.swp
