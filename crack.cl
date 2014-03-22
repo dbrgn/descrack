@@ -2115,7 +2115,7 @@ void f16(uint in[], uint key[], uint out[])
       );
 }
 
-void encrypt(__constant uint in[], uint key[], uint out[])
+void encrypt(__constant uint *in, uint *key, uint *out)
 {
 	uint i;
 	for (i = 0; i < 64; i++) {
