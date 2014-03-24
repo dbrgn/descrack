@@ -1,7 +1,6 @@
-CC      = g++
-#CFLAGS  = -Wall -g -I/opt/cuda/include
-CFLAGS  = -Wall -g -I/opt/intel/opencl-sdk/include/
-LDFLAGS = -Wall -g -lOpenCL
+CXX      = clang++
+CXXFLAGS = -g -std=c++11 -Wall -I/opt/intel/opencl-sdk/include/
+LDLIBS   = -lOpenCL
 
 all: descrack opencl_device_test
 
