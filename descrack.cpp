@@ -36,7 +36,7 @@ void readSource(const char *fname, char *dst)
 {
     FILE* file = fopen(fname, "r");
     if (!file) {
-        std::cerr << "Could not open file " << fname;
+        std::cerr << "Could not open file " << fname << std::endl;
         abort();
     }
 
@@ -57,7 +57,7 @@ static void printBin(const char *name, unsigned int x) {
         c[32-i-1] = (x & 1) ? '1' : '0';
     }
     c[32] = '\0';
-    printf("%s: %s\n", name, c);
+    std::cout << name << ":" << c << std::endl;
 }
 
 // For bitslicing, the LSB of each slice is index zero, and the first slice
@@ -434,19 +434,19 @@ int main(void)
 
         // Calculate stats
         double time = (double)(end - begin) / 1000 / 1000 / 1000;
-        printf("Run time: %f s\n", time); 
+        std::cout << "Run time: " << time << " s" << std::endl;
 
         double rate = (float)workSize[0] * workSize[1] * 32 / time;
-        printf("Rate: %f Mkeys/s\n", rate / 1000 / 1000);
+        std::cout << "Rate: " <<  rate / 1000 / 1000 << " Mkeys/s" << std::endl;
 
         double keyspace = 72057594037927936;
-        printf("Time to search keyspace: %f days\n", keyspace / rate / 60 / 60 / 24);
+        std::cout << "Time to search keyspace: " << keyspace / rate / 60 / 60 / 24 << " days" << std::endl;
 
     
     }
     catch (int err) {
         if (err != CL_SUCCESS) {
-            printf("Error: %d\n", err);
+            std::cerr << "Error: " << err << std::endl;
         }     
     }
 
