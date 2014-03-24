@@ -65,8 +65,7 @@ static void printBin(const char *name, unsigned int x) {
 
 /* Puts data x of size sz into a bitsliced array bsArray at position pos.
  * bsArray assumed to contain zero at that position. */
-static void setBitSlice(unsigned int bsArray[], char x[],
-                       size_t sz, char pos)
+static void setBitSlice(unsigned int bsArray[], unsigned char x[], size_t sz, char pos)
 {
     int i, j, bitnum;
     for (i = 0, bitnum = 0; i < sz; i++) {
@@ -267,8 +266,8 @@ void doEndSwap(unsigned int tmp[]) {
 
 int main(void)
 {
-    char pText[] = { 0x54, 0x68, 0x65, 0x20, 0x71, 0x75, 0x69, 0x63 };
-    char cText[] = { 0x4c, 0xc2, 0x90, 0x01, 0x54, 0x8f, 0xcd, 0x95 };
+    unsigned char pText[] = { 0x54, 0x68, 0x65, 0x20, 0x71, 0x75, 0x69, 0x63 };
+    unsigned char cText[] = { 0x4c, 0xc2, 0x90, 0x01, 0x54, 0x8f, 0xcd, 0x95 };
 
     // Bitslice
     unsigned int bsP[64];
