@@ -208,7 +208,7 @@ int main(int argc, const char** argv) {
   sProfileString += ", NumDevs = ";
 
   // Get and log OpenCL device info
-  cl_uint ciDeviceCount;
+  cl_uint ciDeviceCount=0;
   cl_device_id *devices;
   printf("OpenCL Device Info:\n\n");
   ciErrNum = clGetDeviceIDs (clSelectedPlatformID, CL_DEVICE_TYPE_ALL, 0, NULL, &ciDeviceCount);
@@ -253,7 +253,10 @@ sProfileString += cBuffer;
   sProfileString += "\n";
   printf("%s", sProfileString.c_str());
 }
-free(clPlatformIDs);
+      }
+      if (clPlatformIDs != NULL) {
+	free(clPlatformIDs);
+	clPlatformIDs = NULL;
       }
     }
   }
